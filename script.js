@@ -13,8 +13,7 @@ function movieDisplay() {
         .then(function(movies) {
             console.log(movies)
             for(let i = 0; i <= movies.length -1; i++) {
-                let movieData =`
-                                <div class="col-4" >
+                let movieData =` <div class="col-4" >
                                     <div class="card" style="width: 18rem;">
                                         <img class="poster" src="${movies[i].poster}" alt="">
                                         <div class="card-body">
@@ -29,7 +28,7 @@ function movieDisplay() {
                                             <li class="list-group-item">${movies[i].rating}</li>
                                         </ul>
                                         <div class="card-body">
-                                            <button class="btn btn-primary delete-movie">Delete</button>
+                                            <button class="btn btn-primary delete-movie" id="${movies[i].id}">Delete</button>
                                             <a class="btn btn-primary" href=""></a>
                                         </div>
                                     </div>
@@ -63,9 +62,8 @@ $('#addMovie').click(function(){
 })
 
 $(document).on('click', '.delete-movie', function(){
-    console.log('clicked')
-    // console.log($(this))
-    // fetch('https://rocky-enchanting-wineberry.glitch.me/movies/', {method: 'DELETE'})
+    let movieId = $(this).attr('id')
+    fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`, {method: 'DELETE'})
 })
 
 
