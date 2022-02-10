@@ -37,4 +37,21 @@ function movieDisplay() {
 loadingPromise.then(() => movieDisplay());
 
 
+ const newMovie =  {
+    actors: 'Gerald Butler',
+    director: 'Danny',
+    genre: 'WAR',
+    year: "2005"
+};
+const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newMovie),
+};
+fetch(url, options)
+    .then(response => console.log(response))
+    .then(error => console.log(error))
 
