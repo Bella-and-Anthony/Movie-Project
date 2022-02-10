@@ -18,13 +18,42 @@
         </div>
         <div>Loading...</div>
     </div>
-
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Movies</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Add A Movie
+                    </a>
+                    <div style="" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
+                        <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Title:</span>
+                            </div>
+                            <input type="text" class="form-control" id="title-input">
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rating:</span>
+                            </div>
+                            <input type="text" class="form-control" id="rating-input">
+                        </div>
+                        <button id="addMovie" class="btn btn-primary float-right">Add</button>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <div class="container" >
         <div class="row card-deck" id="displayMovies">
 
         </div>
-
     </div>
 
 

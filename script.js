@@ -12,7 +12,7 @@ function movieDisplay() {
         .then(res => res.json())
         .then(function(movies) {
             console.log(movies)
-            for(let i = 0; i <= movies.length; i++) {
+            for(let i = 0; i <= movies.length -1; i++) {
                 let movieData =`
                                 <div class="col-4" >
                                     <div class="card" style="width: 18rem;">
@@ -26,11 +26,11 @@ function movieDisplay() {
                                             <li class="list-group-item">${movies[i].actors}</li>
                                             <li class="list-group-item">${movies[i].director}</li>
                                             <li class="list-group-item">${movies[i].genre}</li>
-                                            <li class="list-group-item">${movies[i].year}</li>
+                                            <li class="list-group-item">${movies[i].rating}</li>
                                         </ul>
                                         <div class="card-body">
-                                            <a class="card-link btn btn-primary" href=""></a>
-                                            <a class="card-link btn btn-primary" href=""></a>
+                                            <button class="btn btn-primary delete-movie">Delete</button>
+                                            <a class="btn btn-primary" href=""></a>
                                         </div>
                                     </div>
                                 </div>`
@@ -38,24 +38,46 @@ function movieDisplay() {
             }
         })
 }
-loadingPromise.then(() => movieDisplay());
+loadingPromise.then(() => movieDisplay())
+
+function addMovie() {
+    const newMovie = {
+        title: $('#title-input').val(),
+        rating: $('#rating-input').val()
+    };
+    const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMovie),
+    };
+    fetch(url, options)
+        .then(response => console.log(response))
+        .then(error => console.log(error))
+}
+
+$('#addMovie').click(function(){
+    addMovie()
+})
+
+$(document).on('click', '.delete-movie', function(){
+    console.log('clicked')
+    // console.log($(this))
+    // fetch('https://rocky-enchanting-wineberry.glitch.me/movies/', {method: 'DELETE'})
+})
 
 
- const newMovie =  {
-    actors: 'Gerald Butler',
-    director: 'Danny',
-    genre: 'WAR',
-    year: "2005"
-};
-const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
-const options = {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newMovie),
-};
-fetch(url, options)
-    .then(response => console.log(response))
-    .then(error => console.log(error))
+
+
+
+
+
+
+
+
+
+
+
 
