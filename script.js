@@ -13,21 +13,25 @@ function movieDisplay() {
         .then(function(movies) {
             console.log(movies)
             for(let i = 0; i <= movies.length; i++) {
-                let movieData =`<div class="card" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <div class="card-title">${movies[i].title}</div>
-                                        <div></div>
-                                        <div class="card=text">${movies[i].plot}</div>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">${movies[i].actors}</li>
-                                        <li class="list-group-item">${movies[i].director}</li>
-                                        <li class="list-group-item">${movies[i].genre}</li>
-                                        <li class="list-group-item">${movies[i].year}</li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <a class="card-link btn btn-primary" href=""></a>
-                                        <a class="card-link btn btn-primary" href=""></a>
+                let movieData =`
+                                <div class="col-4" >
+                                    <div class="card" style="width: 18rem;">
+                                        <img class="poster" src="${movies[i].poster}" alt="">
+                                        <div class="card-body">
+                                            <div class="card-title">${movies[i].title}</div>
+                                            <div></div>
+                                            <div class="card=text">${movies[i].plot}</div>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">${movies[i].actors}</li>
+                                            <li class="list-group-item">${movies[i].director}</li>
+                                            <li class="list-group-item">${movies[i].genre}</li>
+                                            <li class="list-group-item">${movies[i].year}</li>
+                                        </ul>
+                                        <div class="card-body">
+                                            <a class="card-link btn btn-primary" href=""></a>
+                                            <a class="card-link btn btn-primary" href=""></a>
+                                        </div>
                                     </div>
                                 </div>`
                 $("#displayMovies").append(movieData)
