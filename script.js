@@ -29,9 +29,52 @@ function movieDisplay() {
                                         </ul>
                                         <div class="card-body">
                                             <button class="btn btn-primary delete-movie" id="${movies[i].id}">Delete</button>
-                                            <a class="btn btn-primary" href=""></a>
+<!--                                            <a class="btn btn-primary" href=""></a>-->
                                         </div>
-                                    </div>
+                                  
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary edit-movie" data-toggle="modal" data-target="#editModal" id="${movies[i].id}">
+                                          Edit Movie
+                                        </button>
+                                        
+                                        <!-- Modal -->
+<!--                                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">-->
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="editModalLabel">Edit Movie</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Title:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="edit-title" value="${movies[i].title}">
+                                                </div>
+                                                <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Rating:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="edit-rating" value="${movies[i].rating}">
+                                                </div>
+                                                <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Plot:</span>
+                                                    </div>
+                                                    <textarea class="form-control" id="edit-plot" rows="5">${movies[i].plot}</textarea>
+                                                </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+<!--                                        </div>-->
                                 </div>`
                 $("#displayMovies").append(movieData)
             }
@@ -66,7 +109,9 @@ $(document).on('click', '.delete-movie', function(){
     fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`, {method: 'DELETE'})
 })
 
-
+$(document).on('click', '.edit-movie', function() {
+    $(this).attr('id')
+})
 
 
 
