@@ -30,10 +30,15 @@ function movieDisplay() {
                                         </ul>
                                         <div class="card-body">
                                             <button class="btn btn-primary delete-movie" id="${movies[i].id}">Delete</button>
-                                            <button id="${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn btn-primary">Edit</button>
+                                            <button id="movie${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn btn-primary">Edit</button>
                                         </div>
                                     </div>`
                 $("#displayMovies").append(movieData)
+                $(`#movie${movies[i].id}`).click(function(){
+                    $('#input-title').attr('value', `${movies[i].title}`)
+                    $('#input-rating').attr('value', `${movies[i].rating}`)
+                    $('#input-plot').html(`${movies[i].plot}`)
+                })
             }
         })
 }
@@ -57,6 +62,21 @@ function addMovie() {
         .then(response => console.log(response))
         .then(error => console.log(error))
 }
+    $(document).on('click','.edit-movie',function(){
+        let editId = $(this).attr('id')
+        $(document).on('click', '.save-edit', function(){
+            console.log('clicked')
+            fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${editId}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    title: $('#input-title').val()
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            }).then(response => response.json)
+        })
+    })
 
 $('#addMovie').click(function () {
     addMovie()
@@ -66,57 +86,6 @@ $(document).on('click', '.delete-movie', function () {
     let movieId = $(this).attr('id')
     fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`, {method: 'DELETE'})
 })
-
-$(document).on('click', '.edit-movie', function () {
-    let editId = $(this).attr('id')
-    fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${editId}`)
-        .then(res => res.json())
-        .then(function (movies) {
-            console.log(movies)
-            $('#edit-box').empty()
-            let editData =
-            `<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Movie</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                    <div class="modal-body">
-                            <div class="input-group input-group-sm mx-2 my-3 user-add-input">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Title:</span>
-                                </div>
-                                <input type="text" class="form-control" id="edit-title" value="${movies.title}">
-                            </div>
-                            <div class="input-group input-group-sm mx-2 my-3 user-add-input">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Rating:</span>
-                                </div>
-                                <input type="text" class="form-control" id="edit-rating" value="${movies.rating}">
-                            </div>
-                            <div class="input-group input-group-sm mx-2 my-3 user-add-input">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Plot:</span>
-                                </div>
-                                <textarea class="form-control" id="edit-plot" rows="5">${movies.plot}</textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>`
-            $("#edit-box").append(editData)
-        })
-})
-
-
 
 
 
