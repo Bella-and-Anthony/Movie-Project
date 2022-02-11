@@ -12,56 +12,61 @@
         <title>Movie Project</title>
     </head>
     <body>
-    <div class="center" id="spinner">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+        <div class="center" id="spinner">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div>Loading...</div>
         </div>
-        <div>Loading...</div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Movies</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Add A Movie
-                    </a>
-                    <div style="" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
-                        <div class="input-group input-group-sm mx-2 my-3 user-add-input">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Title:</span>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Movies</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Add A Movie
+                        </a>
+                        <div style="" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
+                            <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Title:</span>
+                                </div>
+                                <input type="text" class="form-control" id="title-input">
                             </div>
-                            <input type="text" class="form-control" id="title-input">
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="input-group input-group-sm mx-2 my-3 user-add-input">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Rating:</span>
+                            <div class="dropdown-divider"></div>
+                            <div class="input-group input-group-sm mx-2 my-3 user-add-input">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Rating:</span>
+                                </div>
+                                <input type="text" class="form-control" id="rating-input">
                             </div>
-                            <input type="text" class="form-control" id="rating-input">
+                            <button id="addMovie" class="btn btn-primary float-right">Add</button>
                         </div>
-                        <button id="addMovie" class="btn btn-primary float-right">Add</button>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">ABD Movies</h1>
+            </div>
         </div>
-    </nav>
-    <div class="container" >
-        <div class="row card-deck" id="displayMovies">
+        <div class="container" >
+            <div class="row card-deck" id="displayMovies">
 
+            </div>
         </div>
-    </div>
-    <div id="edit-box"></div>
+        <div id="edit-box"></div>
 
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="assets/jquery-2.2.4.js"></script>
-    <script src="script.js"></script>
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+        <script src="assets/jquery-2.2.4.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

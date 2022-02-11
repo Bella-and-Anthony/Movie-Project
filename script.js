@@ -16,23 +16,23 @@ function movieDisplay() {
             for (let i = 0; i <= movies.length - 1; i++) {
                 let movieData = ` <div class="col-4" >
                                     <div class="card" style="width: 18rem;">
-                                        <img class="poster" src="${movies[i].poster}" alt="">
+                                        <img class="poster" src="${movies[i].poster}" alt="movie poster">
                                         <div class="card-body">
-                                            <div class="card-title">${movies[i].title}</div>
+                                            <h5 class="card-title">${movies[i].title}</h5>
                                             <div></div>
-                                            <div class="card=text">${movies[i].plot}</div>
+                                            <div class="card=text">${movies[i].year}</div>
                                         </div>
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">${movies[i].actors}</li>
-                                            <li class="list-group-item">${movies[i].director}</li>
-                                            <li class="list-group-item">${movies[i].genre}</li>
-                                            <li class="list-group-item">${movies[i].rating}</li>
+                                            <li class="list-group-item"><h6>Actors:</h6> ${movies[i].actors}</li>
+                                            <li class="list-group-item"><h6>Directors:</h6> ${movies[i].director}</li>
+                                            <li class="list-group-item"><h6>Genre:</h6> ${movies[i].genre}</li>
+                                            <li class="list-group-item"><h6>Rating:</h6> ${movies[i].rating}</li>
                                         </ul>
                                         <div class="card-body">
                                             <button class="btn btn-primary delete-movie" id="${movies[i].id}">Delete</button>
                                             <button id="${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn btn-primary"></button>
                                         </div>
-                                </div>`
+                                    </div>`
                 $("#displayMovies").append(movieData)
             }
         })

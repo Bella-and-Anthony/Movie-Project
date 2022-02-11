@@ -6,17 +6,10 @@
 .loading {
     visibility: hidden;
 }
-
-#displayMovies {
-
-
-}
-
 .poster {
-    height: auto;
-
+    height: 400px;
+    width: auto;
 }
-
 .user-add-input{
     width: 300px;
 }
