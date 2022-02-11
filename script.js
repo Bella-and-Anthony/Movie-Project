@@ -30,7 +30,7 @@ function movieDisplay() {
                                         </ul>
                                         <div class="card-body">
                                             <button class="btn btn-primary delete-movie" id="${movies[i].id}">Delete</button>
-                                            <button id="${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn btn-primary"></button>
+                                            <button id="${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn btn-primary">Edit</button>
                                         </div>
                                     </div>`
                 $("#displayMovies").append(movieData)

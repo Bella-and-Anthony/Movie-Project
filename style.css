@@ -1,3 +1,6 @@
+body, .navbar {
+    background-color: #D9CFC1;
+}
 .center {
     position: absolute;
     top: 50%;
@@ -6,10 +9,17 @@
 .loading {
     visibility: hidden;
 }
+#load-word {
+    position: relative;
+    left: -35px;
+}
 .poster {
     height: 400px;
     width: auto;
 }
 .user-add-input{
     width: 300px;
+}
+.jumbo-header {
+    text-align: center;
 }
