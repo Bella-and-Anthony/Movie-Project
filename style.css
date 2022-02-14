@@ -79,14 +79,27 @@ body, .navbar {
     background-color: #422b02;
 }
 footer {
+    height: auto;
+    border-top: 2px solid #A77E58;
     padding: 50px;
 }
-ul {
+footer ul {
     display: inline-block;
     vertical-align: top;
+    color: #A77E58;
 }
 li {
     list-style-type: none;
 }
+.header-4 {
+    color: #422b02;
+}
 
+/*#f-two {*/
+/*    float: left;*/
+/*}*/
+
+/*#f-one {*/
+/*    float: right;*/
+/*}*/
 
