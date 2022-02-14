@@ -78,26 +78,6 @@ function addMovie() {
                 .then(response => console.log(response))
                 .then(error => console.log(error))
         })
-
-
-    // const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
-    // const options = {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //         title: ,
-    //         year: ,
-    //         actors: ,
-    //         directors: ,
-    //         genre: ,
-    //         rating: ,
-    //     }),
-    // };
-    // fetch(url, options)
-    //     .then(response => console.log(response))
-    //     .then(error => console.log(error))
 }
 
 // CREATING EDIT MOVIE FUNCTION
