@@ -23,14 +23,21 @@ function movieDisplay() {
                                             <div class="card=text">${movies[i].year}</div>
                                         </div>
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><h6>Actors:</h6> ${movies[i].actors}</li>
-                                            <li class="list-group-item"><h6>Directors:</h6> ${movies[i].director}</li>
-                                            <li class="list-group-item"><h6>Genre:</h6> ${movies[i].genre}</li>
-                                            <li class="list-group-item"><h6>Rating:</h6> ${movies[i].rating}</li>
+                                            <li class="list-group-item">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                                        Plot
+                                                    </button> 
+                                                      <div class="dropdown-menu" id="plot-box" aria-labelledby="dropdownMenuButton">
+                                                         ${movies[i].plot}
+                                                      </div>
+                                                </div>
+                                            </li> 
+                                            <li class="list-group-item"><h6>Rating:</h6> ${movies[i].rating} <i class="fas fa-star"></i></li>
                                         </ul>
                                         <div class="card-body">
-                                            <button class="btn btn-primary delete-movie" id="${movies[i].id}">Delete</button>
-                                            <button id="movie${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn btn-primary">Edit</button>
+                                            <button class="btn delete-movie" id="${movies[i].id}"><i class="fas fa-trash"></i></button>
+                                            <button id="movie${movies[i].id}" data-target="#editModal" data-toggle="modal" class="edit-movie btn"><i class="fas fa-pencil-alt"></i></button>
                                         </div>
                                     </div>`
                 $("#displayMovies").append(movieData)
@@ -48,21 +55,49 @@ loadingPromise.then(() => movieDisplay())
 
 // CREATING ADD MOVIE FUNCTION
 function addMovie() {
-    const newMovie = {
-        title: $('#title-input').val(),
-        rating: $('#rating-input').val()
-    };
-    const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newMovie),
-    };
-    fetch(url, options)
-        .then(response => console.log(response))
-        .then(error => console.log(error))
+    let title = $('#title-input').val()
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_PROJECT}&query=${title}`)
+        .then(response => response.json())
+        .then(function(res) {
+            console.log(res);
+            const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    poster:`https://image.tmdb.org/t/p/w500${res.results[0].poster_path}`,
+                    title: res.results[0].title,
+                    year: (res.results[0].release_date).split("-")[0],
+                    plot: res.results[0].overview,
+                    rating: Math.round(res.results[0].vote_average),
+                }),
+            };
+            fetch(url, options)
+                .then(response => console.log(response))
+                .then(error => console.log(error))
+        })
+
+
+    // const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
+    // const options = {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //         title: ,
+    //         year: ,
+    //         actors: ,
+    //         directors: ,
+    //         genre: ,
+    //         rating: ,
+    //     }),
+    // };
+    // fetch(url, options)
+    //     .then(response => console.log(response))
+    //     .then(error => console.log(error))
 }
 
 // CREATING EDIT MOVIE FUNCTION
@@ -95,6 +130,7 @@ $(document).on('click', '.delete-movie', function () {
     let movieId = $(this).attr('id')
     fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`, {method: 'DELETE'})
 })
+
 
 
 

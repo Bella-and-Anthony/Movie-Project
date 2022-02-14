@@ -13,6 +13,17 @@ body, .navbar {
     position: relative;
     left: -35px;
 }
+.btn {
+    color: white;
+    background-color: #A77E58;
+}
+.jumbotron {
+    background-image: url("assets/film.jpeg");
+}
+.movie-header {
+    background-color: white;
+    opacity: 80%;
+}
 .poster {
     height: 400px;
     width: auto;
@@ -60,3 +71,22 @@ body, .navbar {
             142px 85px 121px -11px rgba(0, 0, 0, 0.17);
             margin-bottom: 20px;
 }
+
+#plot-box {
+    padding: 20px;
+    border: 2px solid #A77E58;
+    color: #D9CFC1;
+    background-color: #422b02;
+}
+footer {
+    padding: 50px;
+}
+ul {
+    display: inline-block;
+    vertical-align: top;
+}
+li {
+    list-style-type: none;
+}
+
+

@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/dd0c8072f5.js" crossorigin="anonymous"></script>
 
         <title>Movie Project</title>
     </head>
@@ -18,13 +20,13 @@
             <h3 id="load-word">Loading...</h3>
         </div>
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="#">Movies</a>
+<!--            <h3 class="navbar-brand">Movies</h3>-->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <h5 class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Add A Movie
-                        </a>
+                        </h5>
                         <div style="" class="dropdown-menu pt-0" aria-labelledby="navbarDropdown">
                             <div class="input-group input-group-sm mx-2 my-3 user-add-input">
                                 <div class="input-group-prepend">
@@ -33,25 +35,19 @@
                                 <input type="text" class="form-control" id="title-input">
                             </div>
                             <div class="dropdown-divider"></div>
-                            <div class="input-group input-group-sm mx-2 my-3 user-add-input">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Rating:</span>
-                                </div>
-                                <input type="text" class="form-control" id="rating-input">
-                            </div>
-                            <button id="addMovie" class="btn btn-primary float-right">Add</button>
+                            <button id="addMovie" class="btn float-right mr-2">Add</button>
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 text" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0 button glow-button" type="submit">Search</button>
-                </form>
+<!--                <form class="form-inline my-2 my-lg-0">-->
+<!--                    <input class="form-control mr-sm-2 text" type="search" placeholder="Search" aria-label="Search">-->
+<!--                    <button class="btn btn-outline-success my-2 my-sm-0 button glow-button" type="submit">Search</button>-->
+<!--                </form>-->
             </div>
         </nav>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 jumbo-header">ABD Movies</h1>
+                <h1 class="display-4 jumbo-header movie-header">ABD Movies</h1>
             </div>
         </div>
         <div class="container" >
@@ -65,7 +61,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="editModalLabel">Edit Movie</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -90,20 +86,37 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="save-edit btn btn-primary" data-dismiss="modal">Save changes</button>
+                            <button type="button" class="btn" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn save-edit" data-dismiss="modal">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+
+        <hr>
+        <footer>
+            <ul id="f-one">
+                <h4 class="header-4">Technologies</h4>
+                <li>Javascript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Bootstrap</li>
+            </ul>
+            <ul id="f-two">
+                <h4 class="header-4">Created By</h4>
+                <li>Anthony</li>
+                <li>Bella</li>
+                <li>Danny</li>
+            </ul>
+        </footer>
 
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
+        <script src="keys.js"></script>
         <script src="assets/jquery-2.2.4.js"></script>
         <script src="script.js"></script>
     </body>
