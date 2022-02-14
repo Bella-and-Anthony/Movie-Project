@@ -45,6 +45,8 @@ function movieDisplay() {
 
 loadingPromise.then(() => movieDisplay())
 
+
+// CREATING ADD MOVIE FUNCTION
 function addMovie() {
     const newMovie = {
         title: $('#title-input').val(),
@@ -62,6 +64,8 @@ function addMovie() {
         .then(response => console.log(response))
         .then(error => console.log(error))
 }
+
+// CREATING EDIT MOVIE FUNCTION
     $(document).on('click','.edit-movie',function(){
         let editId = $(this).attr('id').split('movie')[1]
         console.log(editId)
@@ -81,10 +85,12 @@ function addMovie() {
         })
     })
 
+// EVENT LISTENER FOR ADD MOVIE
 $('#addMovie').click(function () {
     addMovie()
 })
 
+// EVENT LISTENER FOR EDIT MOVIE
 $(document).on('click', '.delete-movie', function () {
     let movieId = $(this).attr('id')
     fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`, {method: 'DELETE'})
