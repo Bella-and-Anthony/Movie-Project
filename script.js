@@ -15,7 +15,7 @@ function movieDisplay() {
             console.log(movies)
             for (let i = 0; i <= movies.length - 1; i++) {
                 let movieData = ` <div class="col-4" >
-                                    <div class="card" style="width: 18rem;">
+                                    <div class="card" style="width: 18rem;" id="card-shadow">
                                         <img class="poster" src="${movies[i].poster}" alt="movie poster">
                                         <div class="card-body">
                                             <h5 class="card-title">${movies[i].title}</h5>
@@ -63,13 +63,16 @@ function addMovie() {
         .then(error => console.log(error))
 }
     $(document).on('click','.edit-movie',function(){
-        let editId = $(this).attr('id')
+        let editId = $(this).attr('id').split('movie')[1]
+        console.log(editId)
         $(document).on('click', '.save-edit', function(){
             console.log('clicked')
             fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${editId}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 body: JSON.stringify({
-                    title: $('#input-title').val()
+                    title: $('#input-title').val(),
+                    rating: $('#input-rating').val(),
+                    plot: $('#input-plot').val(),
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',

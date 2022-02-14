@@ -23,3 +23,40 @@ body, .navbar {
 .jumbo-header {
     text-align: center;
 }
+
+.button {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgb(145, 92, 182);
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+}
+
+.glow-button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.text {
+    border: 2px solid #b2b7c2;
+    font-size: 22px;
+    -webkit-transition: box-shadow linear 1s;
+    transition: box-shadow linear 1s;
+}
+.text:focus {
+    box-shadow: 0 0 20px #143b91;
+}
+
+#card-shadow {
+    box-shadow:
+            34.2px 20.5px 8.1px -11px rgba(0, 0, 0, 0.028),
+            53.6px 32.1px 16.5px -11px rgba(0, 0, 0, 0.053),
+            65.4px 39.2px 26.2px -11px rgba(0, 0, 0, 0.075),
+            74.9px 44.8px 39.4px -11px rgba(0, 0, 0, 0.094),
+            89.2px 53.4px 61.6px -11px rgba(0, 0, 0, 0.113),
+            142px 85px 121px -11px rgba(0, 0, 0, 0.17);
+            margin-bottom: 20px;
+}
